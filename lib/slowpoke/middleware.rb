@@ -7,9 +7,9 @@ module Slowpoke
     def call(env)
       @app.call(env)
     ensure
-      puts "in ensure"
-      puts "envkey: "
-      puts env[Slowpoke::ENV_KEY]
+      #puts "in ensure"
+      #puts "envkey: "
+      #puts env[Slowpoke::ENV_KEY]
       if env[Slowpoke::ENV_KEY]
         # extremely important
         # protect the process with a restart
