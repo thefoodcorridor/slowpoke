@@ -32,11 +32,11 @@ Rack::Timeout.unregister_state_change_observer(:logger)
 
 # process protection and notifications
 Rack::Timeout.register_state_change_observer(:slowpoke) do |env|
-  #puts "in state change"
-  #puts "state"
-  #puts env[Rack::Timeout::ENV_INFO_KEY].state 
+  puts "in state change"
+  puts "state"
+  puts env[Rack::Timeout::ENV_INFO_KEY].state 
   if env[Rack::Timeout::ENV_INFO_KEY].state == :timed_out
-    #puts "in if block"
+    puts "in if block"
     env[Slowpoke::ENV_KEY] = true
 
     # TODO better payload
